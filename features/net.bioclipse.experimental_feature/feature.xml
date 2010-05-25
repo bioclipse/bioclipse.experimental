@@ -2,8 +2,9 @@
 <feature
       id="net.bioclipse.experimental_feature"
       label="Bioclipse Experimental"
-      version="2.2.0.v20100127"
-      provider-name="The Bioclipse Team">
+      version="2.4.0.RC1"
+      provider-name="The Bioclipse Team"
+      plugin="net.bioclipse.actionHistory">
 
    <description>
       Experimental plugins for Bioclipse.
