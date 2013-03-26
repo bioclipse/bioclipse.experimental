@@ -6,10 +6,10 @@ Bundle-Version: 2.5.0.qualifier
 Bundle-Activator: net.bioclipse.actionhistory.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- net.bioclipse.core;bundle-version="2.0.0",
- net.bioclipse.ui;bundle-version="2.0.0",
- org.eclipse.core.filesystem;bundle-version="1.2.0",
- net.bioclipse.scripting;bundle-version="2.0.0"
+ net.bioclipse.core,
+ net.bioclipse.ui,
+ org.eclipse.core.filesystem,
+ net.bioclipse.scripting
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Import-Package: org.apache.log4j,
