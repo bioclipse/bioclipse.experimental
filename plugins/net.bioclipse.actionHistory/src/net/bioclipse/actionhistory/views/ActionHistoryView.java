@@ -16,7 +16,6 @@ import net.bioclipse.recording.IHistory;
 import net.bioclipse.recording.IHistoryListener;
 import net.bioclipse.recording.IRecord;
 import net.bioclipse.recording.JsScriptGenerator;
-import net.bioclipse.recording.Activator;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.filesystem.EFS;
@@ -45,6 +44,8 @@ import org.eclipse.ui.internal.editors.text.EditorsPlugin;
 import org.eclipse.ui.internal.editors.text.NonExistingFileEditorInput;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.texteditor.IDocumentProvider;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
 
 public class ActionHistoryView extends ViewPart implements IHistoryListener {
 
@@ -54,9 +55,14 @@ public class ActionHistoryView extends ViewPart implements IHistoryListener {
     private static final Logger logger =
         Logger.getLogger(ActionHistoryView.class);
 
+    public <T> T getService( Class<T> clazz ) {
+    	BundleContext bundleContext = org.osgi.framework.FrameworkUtil.getBundle( IHistory.class ).getBundleContext();
+    	ServiceReference<T> ref = bundleContext.getServiceReference( clazz );
+    	return bundleContext.getService( ref );
+    }
 
     public ActionHistoryView() {
-        history = Activator.getDefault().getHistory();
+        history = getService(IHistory.class);
         history.addHistoryListener(this);
     }
 /**
